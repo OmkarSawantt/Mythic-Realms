@@ -1,35 +1,37 @@
 import { ethers } from 'hardhat';
 import console from 'console';
 
-// const _metadataUri = 'https://gateway.pinata.cloud/ipfs/QmX2ubhtBPtYw75Wrpv6HLb1fhbJqxrnbhDo1RViW3oVoi';
+// The metadataURI should be valid - keep the working one
 const _metadataUri = 'https://gateway.pinata.cloud/ipfs/bafybeiarr2ykkjmzvnbc3rftd5ggxwsvvwgalrh5wchx5zhs2e65q67ybm';
-
-async function deploy(name: string, ...params: [string]) {
-  const contractFactory = await ethers.getContractFactory(name);
-
-  return await contractFactory.deploy(...params, { gasLimit: 5000000 }).then((f: any) => f.deployed());
-
-}
 
 async function main() {
   try {
-
     const [admin] = await ethers.getSigners();
 
-    console.log(`Deploying a smart contract...`);
+    console.log(`Deploying MythicRealms with account: ${admin.address}`);
+    console.log(`Account balance: ${(await admin.getBalance()).toString()}`);
 
-    const MythicRealms = (await deploy('MythicRealms', _metadataUri)).connect(admin);
+    // Get the contract factory
+    const MythicRealmsFactory = await ethers.getContractFactory("MythicRealms");
 
-    console.log({ MythicRealms: MythicRealms.address });
+    // Deploy with increased gas limit and wait for deployment
+    console.log(`Deploying with metadata URI: ${_metadataUri}`);
+    const mythicRealms = await MythicRealmsFactory.deploy(_metadataUri, {
+      gasLimit: 8000000  // Increased gas limit
+    });
+
+    console.log("Waiting for deployment transaction to be mined...");
+    await mythicRealms.deployed();
+
+    console.log(`MythicRealms successfully deployed to: ${mythicRealms.address}`);
   } catch (error) {
-    console.log(error);
-
+    console.error("Deployment failed with error:", error);
   }
 }
 
 main()
   .then(() => process.exit(0))
   .catch((error) => {
-    console.error(error)
-    process.exit(1)
+    console.error("Unhandled error during deployment:", error);
+    process.exit(1);
   });

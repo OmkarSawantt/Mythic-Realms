@@ -82,7 +82,7 @@ const Battle = () => {
   const makeAMove =async (choice) => {
     playAudio(choice===1?attackSound:defenseSound)
     try {
-      await contract.attackOrDefendChoice(choice,battleName,{gasLimit:200000})
+      await contract.attackOrDefendChoice(choice,battleName,{gasLimit:2000000})
       setShowAlert({
         status:true,
         type:'info',

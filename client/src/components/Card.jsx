@@ -7,13 +7,13 @@ const img1=generateRandomCardImage()
 const img2=generateRandomCardImage()
 const Card = ({Card,title,restStyle,cardRef,hash,playerTwo}) => {
 
-  console.log(hash);
+
 
   return (
     <Tilt>
 
     <div ref={cardRef} className={`${styles.cardContainer} ${restStyle}`}>
-      <img src={allCards[hash] } alt="card" className={styles.cardImg} />
+      <img src={allCards[hash%30] } alt="card" className={styles.cardImg} />
       <div className={`${styles.cardPointContainer} sm:left-[25.5%] left-[26%] ${styles.flexCenter}]`}>
         <p className={`${styles.cardPoint} text-yellow-400`}>{Card.att}</p>
       </div>
