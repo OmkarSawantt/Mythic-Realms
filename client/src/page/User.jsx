@@ -17,7 +17,7 @@ const User = () => {
       setEditName(player.playerName)
       const playerExists=await contract.isPlayer(walletAddress);
       if(!playerExists){
-        navigate('/')
+        navigate('/home')
       }
     }
     if(contract && walletAddress)RegistereOrNot()

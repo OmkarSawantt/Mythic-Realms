@@ -5,6 +5,8 @@ import Battle from './Battle'
 import PrevBattles from './PrevBattles'
 import User from './User'
 import Tokens from './Tokens'
+import Landing from './Landing'
+import Result from './Result'
 export{
   Home,
   CreateBattle,
@@ -13,4 +15,6 @@ export{
   PrevBattles,
   User,
   Tokens,
+  Landing,
+  Result
 }

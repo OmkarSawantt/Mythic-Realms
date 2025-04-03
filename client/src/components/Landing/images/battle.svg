@@ -1,0 +1,10 @@
+<svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M9 3L15 9M9 9L15 3M12 12L9 15L12 18L15 15L12 12Z"
+    stroke="#FFC107"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+  <path d="M12 2V22" stroke="#FFC107" strokeWidth="2" strokeLinecap="round" />
+</svg>

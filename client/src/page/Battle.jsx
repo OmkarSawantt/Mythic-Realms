@@ -95,7 +95,7 @@ const Battle = () => {
    useEffect(()=>{
     const timer=setTimeout(() => {
      if(!gameData?.activeBattle){
-      navigate('/')
+      navigate('/home')
      }
     },[2000]);
     return () => clearTimeout(timer);

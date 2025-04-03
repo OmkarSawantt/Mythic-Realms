@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { logo,heroImg } from "../assets";
+import new1 from '../assets/new.jpg';
 import Group2 from '../assets/Group2.svg'
 import styles from '../styles'
 import Home from '../assets/background/bg2.png'
@@ -9,18 +10,19 @@ import Alert from './Alert';
 import CustomButton from './CustomButton';
 import Loader from './Loader'
 import dragon1 from '../assets/background/dragon1.png'
+import picture2 from './Landing/images/Picture3.png';
 const PageHOC = (Components, title1, description1) =>()=> {
   const { showAlert,title,description,registered,loading,player,walletAddress } =useGlobalContext()
   const navigate = useNavigate();
 
   return (
-    <div className={styles.hocContainer}>
+    <div className={`${styles.hocContainer} max-h-screen sm:overflow-y-hidden overflow-x-hidden`} >
       {
         showAlert?.status && <Alert type={showAlert.type} message={showAlert.message}/>
       }
       <div className={styles.hocContentBox}>
         <div className='w-full flex flex-row justify-between items-center'>
-          <img src={Group2} alt="logo" className={styles.hocLogo} onClick={() => navigate('/')} />
+          <img src={Group2} alt="logo" className={styles.hocLogo} onClick={() => navigate('/home')} />
           {
             registered && (
               <>
@@ -43,7 +45,7 @@ const PageHOC = (Components, title1, description1) =>()=> {
         </div>
       </div>
       <div className='flex flex-1'>
-        <img src={Home} alt="heroImg" className='w-full xl:h-full object-cover'/>
+        <img src={picture2} alt="heroImg" className='w-full xl:h-full object-cover  mix-blend-color-dodge'/>
       </div>
       {
         loading && (

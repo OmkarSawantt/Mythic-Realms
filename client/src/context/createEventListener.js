@@ -91,6 +91,6 @@ console.log(walletAddress);
     }else if(walletAddress===args.loser){
       setShowAlert({status:true,type:'failure',message:'You lost!'})
     }
-    navigate('/create-battle')
+    navigate('/home')
   })
 }
