@@ -39,7 +39,6 @@ import xho from './Xho.png';
 
 // logo
 import logo from './logo.svg';
-import group2 from './group2.svg';
 
 // icon
 import attack from './attack.png';
