@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import picture2 from '../components/Landing/images/Picture4.png';
+import picture2 from '../components/Landing/images/picture4.png';
 import { useParams ,useNavigate } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import { Loader } from '../components';
