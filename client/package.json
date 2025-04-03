@@ -24,7 +24,6 @@
     "react-parallax-tilt": "^1.7.272",
     "react-router-dom": "^7.1.1",
     "react-scroll": "^1.9.3",
-    "react-slidedown": "^2.4.7",
     "react-tooltip": "^5.28.0",
     "web3modal": "^1.9.12"
   },
