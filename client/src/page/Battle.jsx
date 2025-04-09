@@ -95,16 +95,16 @@ const Battle = () => {
    useEffect(()=>{
     const timer=setTimeout(() => {
      if(!gameData?.activeBattle){
-      navigate('/home')
+      navigate('/result/'+battleName)
      }
     },[2000]);
     return () => clearTimeout(timer);
    })
   return (
-    <div className={`${styles.flexBetween} ${styles.gameContainer} bg-bat overflow-hidden`}>
+    <div className={`${styles.flexBetween} ${styles.gameContainer} bg-bat overflow-hidden `}>
       {
         showSword &&
-        <div className='absolute h-screen w-full flex justify-center items-center z-50 bg-[#0f101e] bg-opacity-90'>
+        <div className='absolute h-screen w-screen overflow-hidden flex justify-center items-center z-50 bg-[#0f101e] bg-opacity-90'>
           <Sword />
         </div>
       }
@@ -143,7 +143,7 @@ const Battle = () => {
 
       <PlayerInfo player={player01} playerIcon={player01Icon}  />
 
-      <GameInfo/>
+      <GameInfo className='overflow-hidden'/>
     </div>
   )
 }

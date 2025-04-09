@@ -33,7 +33,7 @@ const GameInfo = () => {
         </button>
       </div>
 
-      <div className={`${styles.gameInfoSidebar} ${toggleSidebar ? 'translate-x-0' : 'translate-x-full'} ${styles.glassEffect}  backdrop-blur-3xl`}>
+      <div className={`${styles.gameInfoSidebar} ${toggleSidebar ? 'translate-x-0 ' : 'translate-x-full hidden'} ${styles.glassEffect}  backdrop-blur-3xl overflow-hidden`}>
         <div className='flex flex-col'>
           <div className={styles.gameInfoSidebarCloseBox}>
             <div className={`${styles.gameInfoSidebarClose} ${styles.flexCenter}`} onClick={()=>setToggleSidebar(false)} >
