@@ -5,11 +5,13 @@ import styles from "../styles";
 import { useNavigate } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 import { ethers } from "ethers";
+import {allCards} from '../assets'
 const CreateBattle = () => {
   const {contract,walletAddress, battleName,setBattleName,gameData,setErrorMessage,setLoading,tokens,setShowAlert}=useGlobalContext()
   const [waitBattle, setWaitBattle] = useState(false);
   const navigate=useNavigate()
   const [selectedToken, setSelectedToken] = useState(null)
+  const [selectedTokenHash, setSelectedTokenHash] = useState()
   const [showModal, setShowModal] = useState(false)
   let formattedTokens = tokens.map((token) => ({
       ...token,
@@ -68,7 +70,7 @@ const CreateBattle = () => {
           handleValueChange={setBattleName}
         />
         <p className="font-rajdhani font-light text-sm text-white">
-          {selectedToken === null && 'Card not selected'}
+          {selectedToken === null ? 'Card not selected' : `Selected card: ${allCards[selectedTokenHash].split('/').pop().split('.')[0] || 'Card'}`}
         </p>
         <div className='w-full flex justify-left gap-8'>
 
@@ -91,16 +93,16 @@ const CreateBattle = () => {
           : <p className={styles.infoText} onClick={()=>navigate('/join-battle')}>Or join already existing battles</p>
       }
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center">
           <div className="bg-gray-800 p-5 rounded-lg text-white w-3/6">
             <h2 className="text-lg font-bold mb-3">Select a Token</h2>
             <div className="flex flex-row max-h-screen overflow-auto gap-2">
               {formattedTokens.map((token,index) => (
                 <div key={index}>
-                {console.log(token)}
                 <button
                   onClick={() => {
                     setSelectedToken(index);
+                    setSelectedTokenHash(token.tokenHash);
                     setShowModal(false);
                   }}
                   className="p-2 rounded-md"

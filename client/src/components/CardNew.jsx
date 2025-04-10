@@ -7,8 +7,6 @@ const CardNew = ( Card ) => {
   const card=Card.card;
   let img
   img = allCards[card.tokenHash ? card.tokenHash%30 : 0];
-  console.log(card.tokenHash);
-
   return (
     <Tilt>
       <div className="sm:w-[234px] w-[99px] sm:h-[300px] h-[126px] z-0 transition-all">

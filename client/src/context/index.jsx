@@ -178,7 +178,6 @@ const player2Ref=useRef()
       navigate(`battle/${activeBattle?.name}`)
     }
     setGameData({pendingBattles : pendingBattles.slice(1) , activeBattle})
-    console.log(activeBattle);
     setLoading(false)
   }
   useEffect(() => {
@@ -189,10 +188,7 @@ const player2Ref=useRef()
     const fetchTokenData=async () => {
       setLoading(true)
       try {
-        console.log("registered:",registered);
-
         const tokensAvailable=await contract.isPlayerToken(walletAddress)
-
         const player=await contract.getPlayer(walletAddress)
         setPlayer(player)
         if(tokensAvailable){
@@ -204,7 +200,6 @@ const player2Ref=useRef()
       } catch (error) {
         setErrorMessage(error)
         console.log(error);
-
       }
       setLoading(false)
     }
