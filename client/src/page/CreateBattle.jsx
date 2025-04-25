@@ -69,9 +69,14 @@ const CreateBattle = () => {
           value={battleName}
           handleValueChange={setBattleName}
         />
+        {
+          tokens.length !== 1 &&
+          (
         <p className="font-rajdhani font-light text-sm text-white">
           {selectedToken === null ? 'Card not selected' : `Selected card: ${allCards[selectedTokenHash].split('/').pop().split('.')[0] || 'Card'}`}
         </p>
+          )
+        }
         <div className='w-full flex justify-left gap-8'>
 
           <CustomButton

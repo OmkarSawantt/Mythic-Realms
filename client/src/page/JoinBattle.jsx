@@ -51,9 +51,14 @@ const JoinBattle = () => {
     <>
       <h2 className={styles.joinHeadText}>Available Battles:</h2>
       <div className="flex flex-col mb-5">
+        {
+          tokens.length !== 1 &&
+          (
         <p className="font-rajdhani font-light text-sm text-white">
           {selectedToken === null ? 'Card not selected' : `Selected card: ${allCards[selectedTokenHash].split('/').pop().split('.')[0] || 'Card'}`}
         </p>
+          )
+        }
         <div className='w-full flex justify-left gap-8'>
           <CustomButton
             title="Select Card"
